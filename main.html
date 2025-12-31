@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+
+        .topbar {
+            background-color: #f5f5f5;
+            color: #5409DA;
+            font-size: 14px;
+            padding: 8px 24px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .topbar a {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #5409DA;
+            text-decoration: none;
+            margin: 0 4px;
+        }
+
+        .topbar a:hover {
+        text-decoration: underline;
+        }
+
+
+
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+
+
+        .logo {
+            display: flex;
+            align-items: center;
+            padding: 20px 0px 20px 50px;
+            gap: 10px;
+        }
+
+        .logo img {
+            width: 30px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: 400;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #5409DA;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+
+        .nav-links ul li {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5409DA;
+            font-weight: medium;
+        }
+
+        .nav-links a:hover {
+            color: #A26EFF;
+            font-weight: semibold;
+            border-bottom: 3px solid #5409DA;
+        }
+
+        .btn {
+            display: flex;
+            gap: 10px;
+            margin-right: 50px;
+        }
+
+        .btn button {
+            padding: 8px 14px;
+            background-color: #5409DA;
+            color: #f9f9f9;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 500;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .btn button:hover {
+            background-color: #A26EFF;
+            font-weight: 500;
+            box-shadow: 0 4px 12px #5609da30;
+        }
+
+
+       @media (max-width: 700px) {
+            .topbar { padding: 6px 12px; font-size: 13px; }
+            .navbar-container { padding: 0 16px; }
+            .logo { padding: 14px 0 14px 20px; gap:8px; }
+            .logo img { width: 28px; }
+            .brand-name { font-size: 18px; }
+
+            .nav-links { gap: 12px; }
+            .nav-links ul { gap: 8px; }
+            .nav-links a { font-size: 14px; }
+
+            .btn { margin-right: 20px; }
+            .btn button { padding: 8px 12px; font-size: 14px; }
+
+            .hero-banner { height: 360px; background-position: center; }
+
+            .cari-dokter { padding: 60px 16px; }
+            select { width: 100%; max-width: 500px; }
+            button { padding: 10px 18px; }
+
+            .mulai-sehat { padding: 120px 16px; }
+            .mulai-sehat-container { gap: 40px; }
+            .content2-img img { max-width: 380px; }
+            .mulai-sehat-text { max-width: 420px; }
+            .mulai-sehat-text h2 { font-size: 28px; }
+
+            .jadwal-temu { padding: 100px 16px; }
+            .jadwal-temu-container { gap: 40px; align-items: center; }
+            .form-wrapper { max-width: 480px; flex: 1 1 480px; }
+            .jadwal-img img { max-width: 320px; }
+
+            .line-img-1 { margin-bottom: 80px; height: 40px; }
+
+            .footer-container { padding: 0 24px; gap: 40px; }
+        }
+
+        @media (max-width: 400px) {
+            .topbar { font-size: 12px; padding: 6px 8px; }
+            .navbar-container { flex-direction: column; align-items: center; gap: 8px; padding: 0 12px; }
+            .logo { padding: 12px 0 12px 0; }
+            .brand-name { font-size: 16px; }
+
+            .nav-links { order: 3; width: 100%; display: flex; justify-content: center; }
+            .nav-links ul { flex-direction: column; gap: 8px; align-items: center; }
+            .nav-links a { display: inline-block; padding: 6px 8px; border-radius: 6px; }
+
+            .btn { order: 2; margin-right: 0; width: 100%; justify-content: center; }
+            .btn button { width: auto; padding: 8px 12px; }
+
+            .hero-banner { height: 220px; background-position: center; }
+
+            .cari-dokter { padding: 40px 12px; }
+            select { width: 100%; }
+            button { width: 100%; padding: 10px; }
+
+            .mulai-sehat { padding: 80px 12px; }
+            .mulai-sehat-container { flex-direction: column-reverse; gap: 20px; padding: 0 12px; }
+            .content2-img img { max-width: 100%; border-radius: 10px; }
+            .mulai-sehat-text { max-width: 100%; text-align: center; }
+            .mulai-sehat-text h2 { font-size: 22px; }
+
+            .jadwal-temu { padding: 60px 12px; }
+            .jadwal-temu-container { flex-direction: column; gap: 20px; align-items: center; }
+            .form-wrapper, .jadwal-img { width: 100%; max-width: 420px; padding: 0 8px; }
+            .jadwal-img img { max-width: 100%; }
+
+            .line-img-1 { margin-bottom: 40px; height: 30px; }
+
+            .footer-section { padding: 24px 0; }
+            .footer-container { padding: 0 16px; gap: 24px; flex-direction: column; align-items: center; }
+            .footer-brand { font-size: 20px; }
+            .footer-links { text-align: center; }
+        }
+
+        .hero-banner {
+            background-image: url(img/launching-img.png);
+            background-size: cover;
+            background-position: center;
+            width: 100vw;
+            height: 500px;
+        }
+
+        .cari-dokter {
+            padding: 80px 24px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .cari-dokter h2 {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 28px;
+            color: #161616;
+        }
+
+        .cari-dokter p {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open     Sans', 'Helvetica Neue', sans-serif;
+            font-size: 16px;
+            color: #575757;
+            margin-bottom: 24px;
+        }
+
+
+select {
+  width: 300px;
+  padding: 12px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+
+select:focus {
+  border-color: #A26EFF;
+  outline: none;
+}
+
+button {
+  padding: 12px 24px;
+  background-color: #5409DA;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #A26EFF;
+}
+
+
+        .mulai-sehat {
+            padding: 200px 0px;
+            background-color: #f9f9f9;
+        }
+
+        .mulai-sehat-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 150px;
+            flex-wrap: wrap; 
+        }
+
+        .line-container-1 {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: #f9f9f9;
+            line-height: 0;
+        }
+
+        .line-img-1 {
+            display: block;
+            margin-bottom: 150px;
+            padding: 0px;
+            height: 50px;
+            width: auto;
+            animation: slide-left 85s linear infinite;
+        }
+
+        @keyframes slide-left {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+.content2-img img {
+  max-width: 450px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content2-img img:hover {
+  transform: scale(1.05);
+}
+
+
+
+.mulai-sehat-text {
+  max-width: 500px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #161616;
+}
+
+.mulai-sehat-text h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.mulai-sehat-text p {
+  font-size: 16px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.btn-sehat {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #5409DA;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-sehat:hover {
+  background-color: #8c5ae0;
+}
+
+.jadwal-temu {
+  padding: 170px 24px;
+  background-color: #fefefe;
+}
+
+.jadwal-temu-container {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #161616;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 160px;
+  flex-wrap: wrap;
+}
+
+.form-wrapper {
+  max-width: 500px;
+  flex: 1;
+}
+
+.form-wrapper h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.form-wrapper p {
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.form-temu label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #444;
+}
+
+.form-temu input,
+.form-temu select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.form-temu input:focus,
+.form-temu select:focus {
+  border-color: #A26EFF;
+  outline: none;
+}
+
+.btn-temu {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #5409DA;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-temu:hover {
+  background-color: #8c5ae0;
+}
+
+.jadwal-img img {
+  max-width: 350px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.jadwal-img img:hover {
+  transform: scale(1.05);
+}
+
+        .footer-section {
+            background-color: #5409DA;
+            padding: 40px 0;
+            font-family: system-ui, sans-serif;
+            color: #f9f9f9;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px;
+            flex-wrap: wrap;
+            gap: 100px;
+        }
+
+        .footer-left,
+        .footer-center,
+        .footer-right {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-brand {
+            font-size: 24px;
+            color: #f9f9f9;
+            margin-bottom: 10px;
+        }
+
+        /* .footer-left p,
+        .footer-center p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #f9f9f9;
+        } */
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #f9f9f9;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+
+              @media (max-width: 700px) {
+            .topbar { padding: 6px 12px; font-size: 13px; }
+            .navbar-container { padding: 0 16px; }
+            .logo { padding: 14px 0 14px 20px; gap:8px; }
+            .logo img { width: 28px; }
+            .brand-name { font-size: 18px; }
+
+            .nav-links { gap: 12px; }
+            .nav-links ul { gap: 8px; }
+            .nav-links a { font-size: 14px; }
+
+            .btn { margin-right: 20px; }
+            .btn button { padding: 8px 12px; font-size: 14px; }
+
+            .hero-banner { height: 360px; background-position: center; }
+
+            .cari-dokter { padding: 60px 16px; }
+            select { width: 100%; max-width: 500px; }
+            button { padding: 10px 18px; }
+
+            .mulai-sehat { padding: 120px 16px; }
+            .mulai-sehat-container { gap: 40px; }
+            .content2-img img { max-width: 380px; }
+            .mulai-sehat-text { max-width: 420px; }
+            .mulai-sehat-text h2 { font-size: 28px; }
+
+            .jadwal-temu { padding: 100px 16px; }
+            .jadwal-temu-container { gap: 40px; align-items: center; }
+            .form-wrapper { max-width: 480px; flex: 1 1 480px; }
+            .jadwal-img img { max-width: 320px; }
+
+            .line-img-1 { margin-bottom: 80px; height: 40px; }
+
+            .footer-container { padding: 0 24px; gap: 40px; }
+        }
+
+        @media (max-width: 400px) {
+            .topbar { font-size: 12px; padding: 6px 8px; }
+            .navbar-container { flex-direction: column; align-items: center; gap: 8px; padding: 0 12px; }
+            .logo { padding: 12px 0 12px 0; }
+            .brand-name { font-size: 16px; }
+
+            .nav-links { order: 3; width: 100%; display: flex; justify-content: center; }
+            .nav-links ul { flex-direction: column; gap: 8px; align-items: center; }
+            .nav-links a { display: inline-block; padding: 6px 8px; border-radius: 6px; }
+
+            .btn { order: 2; margin-right: 0; width: 100%; justify-content: center; }
+            .btn button { width: auto; padding: 8px 12px; }
+
+            .hero-banner { height: 220px; background-position: center; }
+
+            .cari-dokter { padding: 40px 12px; }
+            select { width: 100%; }
+            button { width: 100%; padding: 10px; }
+
+            .mulai-sehat { padding: 80px 12px; }
+            .mulai-sehat-container { flex-direction: column-reverse; gap: 20px; padding: 0 12px; }
+            .content2-img img { max-width: 100%; border-radius: 10px; }
+            .mulai-sehat-text { max-width: 100%; text-align: center; }
+            .mulai-sehat-text h2 { font-size: 22px; }
+
+            .jadwal-temu { padding: 60px 12px; }
+            .jadwal-temu-container { flex-direction: column; gap: 20px; align-items: center; }
+            .form-wrapper, .jadwal-img { width: 100%; max-width: 420px; padding: 0 8px; }
+            .jadwal-img img { max-width: 100%; }
+
+            .line-img-1 { margin-bottom: 40px; height: 30px; }
+
+            .footer-section { padding: 24px 0; }
+            .footer-container { padding: 0 16px; gap: 24px; flex-direction: column; align-items: center; }
+            .footer-brand { font-size: 20px; }
+            .footer-links { text-align: center; }
+        }
+
+    </style>
+</head>
+<body>
+<div class="topbar">
+    <p>
+        <a href="https://wa.me/628211237777" target="_blank">Call Center: 0821-123-7777</a> |
+        <a href="https://www.instagram.com/pesantrenpetik/" target="_blank">Instagram: @healify</a>
+    </p>
+</div>
+
+
+    <header class="navbar-container">
+        <div class="logo">
+            <img src="img/healify_logo.png" alt="healify_logo">
+            <p class="brand-name">healify</p>
+                </div>
+
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#mulaisehat">Mulai Sehat</a></li>
+                    <li><a href="#janjitemu">Janji Temu</a></li>
+                </ul>
+        <div class="btn">
+            <form action="landing.html" method="get">
+            <button type="submit">Logout</button>
+            </form>
+        </div>
+            </nav>
+    </header>
+
+    <section class="hero-banner" id="beranda"></section>
+
+    <section class="cari-dokter">
+  <h2>CARI DOKTER</h2>
+  <p>Temukan dan kenali profil dokter serta tenaga ahli kami</p>
+
+<label for="dokter"></label>
+<br>
+<select id="search">
+  <option disabled selected>Cari dokter</option>
+  <option>dr. Rizky Maulana, Sp.A – Spesialis Anak</option>
+  <option>dr. Aleeya Putri, Sp.KJ – Spesialis Kedokteran Jiwa</option>
+  <option>dr. Andi Pratama, Sp.B – Spesialis Bedah Umum</option>
+  <option>dr. Surya Utomo, Sp.B – Spesialis Bedah Umum</option>
+</select>
+<button>Telusuri</button>
+
+  </div>
+</section>
+
+<section class="mulai-sehat" id="mulaisehat">
+<div class="line-container-1">
+    <img src="img/call-animation.png" alt="hubungi kami sekarang" class="line-img-1">
+    <img src="img/call-animation.png" alt="hubungi kami sekarang" class="line-img-1">
+</div>
+  <div class="mulai-sehat-container">
+    <div class="content2-img">
+      <img src="img/mulai-img.svg" alt="content2-image">
+    </div>
+
+    <div class="mulai-sehat-text">
+      <h2>Mulai Perjalanan Sehat Anda</h2>
+      <p>Kami hadir untuk mendampingi setiap langkah menuju hidup <br> yang lebih sehat dan nyaman.</p>
+      <a href="https://web.whatsapp.com/" class="btn-sehat" target="_blank">Konsultasi sekarang</a>
+    </div>
+  </div>
+</section>
+
+<section class="jadwal-temu" id="janjitemu">
+  <div class="jadwal-temu-container">
+    <div class="form-wrapper">
+      <h2>Buat Janji Temu</h2>
+      <p>Pilih dokter, tanggal, dan waktu yang sesuai untuk konsultasi Anda.</p>
+
+      <form class="form-temu">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" placeholder="Masukkan nama Anda">
+
+        <label for="dokter">Pilih Dokter</label>
+        <select id="dokter">
+          <option disabled selected>Pilih dokter</option>
+          <option>dr. Rizky Maulana, Sp.A – Spesialis Anak</option>
+          <option>dr. Aleeya Putri, Sp.KJ – Spesialis Kedokteran Jiwa</option>
+          <option>dr. Andi Pratama, Sp.B – Spesialis Bedah Umum</option>
+          <option>dr. Surya Utomo, Sp.B – Spesialis Bedah Umum</option>
+        </select>
+
+        <label for="tanggal">Tanggal Konsultasi</label>
+        <input type="date" id="tanggal">
+
+        <label for="waktu">Waktu Konsultasi</label>
+        <input type="time" id="waktu">
+
+        <button type="submit" class="btn-temu">Kirim Permintaan</button>
+      </form>
+    </div>
+
+    <div class="jadwal-img">
+      <img src="img/jadwal-img.png" alt="jadwal-temu-image">
+    </div>
+  </div>
+</section>
+
+<footer class="footer-section">
+  <div class="footer-container">
+
+    <div class="footer-left">
+      <h3 class="footer-brand">healify</h3>
+      <p class="copyright">Copyright &copy;2025 healify. Alright reserved</p>
+    </div>
+
+
+    <!-- <div class="footer-center">
+      <p class="address">
+        Jl. Sehat Sentosa No. 88,<br>
+        Kel. Medika, Kec. Harmoni,<br>
+        Kota Jakarta Selatan, DKI Jakarta 12345
+      </p>
+    </div> -->
+
+
+    <div class="footer-right">
+      <ul class="footer-links">
+        <li><a href="#">Support</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
